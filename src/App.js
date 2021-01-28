@@ -1,35 +1,41 @@
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import React, {useState} from 'react';
 import Nav from './components/Nav/Nav.jsx';
+import Footer from './components/Footer/Footer.jsx'
 import './App.css';
 
 function Home() {
   return <h1>Home Page</h1>
 }
 
+function About() {
+  return <p>About Page</p>
+}
+
+function Page404() {
+  return <h1>Page Not Found</h1>
+}
+
 function App() {
 
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
-    <Nav isLoggedIn={isLoggedIn}/>
-    // <Router>
-    //   <div>
-    //     {/* <nav>
-    //       <ul>
-    //         <li>
-    //           <Link to='/home'>Home</Link>
-    //         </li>
-    //       </ul>
-    //     </nav> */}
+    <div>
+      <Router>
+        <div>
+          <Nav isLoggedIn={isLoggedIn}/>
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/about' component={About} />
+            <Route component={Page404}/>
+          </Switch>
+        </div>
+          <Footer />
+      </Router>
+    </div>
 
-    //     <Switch>
-    //       <Route path='/home'>
-    //         <Home />
-    //       </Route>
-    //     </Switch>
-    //   </div>
-    // </Router>
+
   );
 }
 
