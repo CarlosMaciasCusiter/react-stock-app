@@ -1,12 +1,9 @@
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import React, {useState} from 'react';
+import Home from './pages/Home.jsx';
 import Nav from './components/Nav/Nav.jsx';
 import Footer from './components/Footer/Footer.jsx'
 import './App.css';
-
-function Home() {
-  return <h1>Home Page</h1>
-}
 
 function About() {
   return <p>About Page</p>
